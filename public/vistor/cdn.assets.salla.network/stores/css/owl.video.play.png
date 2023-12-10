@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Error>
-  <Code>NoSuchKey</Code>
-  <Message>The specified key does not exist.</Message>
-  <RequestId>63D21ED0B3DB4D3539942FFC</RequestId>
-  <HostId>cdn.assets.salla.network</HostId>
-  <Key>stores/css/owl.video.play.png</Key>
-</Error>
