@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -11,8 +12,9 @@ class ProductController extends Controller
 {
     //
     public function index(){
-        $products=Product::all();
-        return view('admin.codes.show_products',compact('products'));
+        $products=Product::with('category')->get();
+        $categories=Category::all();
+        return view('admin.codes.show_products',compact('products','categories'));
     }
     public function store(Request $request){
         $request->validate([
@@ -35,7 +37,7 @@ class ProductController extends Controller
         $request->file('photo')->storeAs('/products/products_code/', $photo, 'admin');
 
         Product::create([
-            'category_name'=>$request->category,
+            'category_id'=>$request->category,
               'product_name'=>$request->name,
             'price'=>$request->price,
             'description'=>$request->description,
@@ -45,14 +47,11 @@ class ProductController extends Controller
 
         return redirect()->back()->with('success','تم اضافة المنتج بنجاح');
     }
-
     public function delete($id){
-
         $product=Product::findOrFail($id);
         $photo= $product->photo;
         $product->delete();
         Storage::disk('admin')->delete('/products/products_code/'.$photo);
         return redirect()->back()->with('success','تم حذف المنتج بنجاح');
-
     }
 }

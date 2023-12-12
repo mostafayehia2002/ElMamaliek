@@ -1,0 +1,311 @@
+   :root {
+            --main-color: #3a075f;
+            --main-text-color: #ff7300;
+            --main-text-color2: #000000;
+            --infinte-color: #000000;
+            --main-text-color-dark: #618b93;
+            /* New Coloring Pattern: */
+            --color-main: #000000;
+            --color-main-d: #94bec6;
+            --color-main-l: #d4feff;
+            --color-main-reverse: #2e5860;
+            --color-text: #5a5a5a;
+            --color-text-reverse: #6e98a0;
+            --color-title: #618b93;
+        }
+        
+     
+
+        .store-header,
+        .header-bar,
+        .store-header-min {
+            background: var(--main-color);
+        }
+
+        .store-header h1 a,
+        .store-header-min h1 {
+            color: #fff;
+        }
+
+        .dropdown-store-header.open .dropdown-toggle,
+        .dropdown-store-header.open .dropdown-toggle {
+            background: var(--main-color);
+            color: #fff;
+        }
+
+        /* .store-contact a { color: var(--main-text-color); } */
+        /*a.media-heading, a.product-link { color: var(--main-text-color); }*/
+        .pace-demo {
+            background: var(--main-text-color) !important;
+            /*darker*/
+        }
+
+        .pace .pace-progress {
+            background: var(--main-text-color2) !important;
+            /*darker*/
+        }
+
+        .add-cart {
+            color: var(--main-text-color);
+            /*darker*/
+            border: 1px solid var(--main-text-color);
+            /*darker*/
+        }
+
+        .add-cart:hover,
+        .add-cart:focus,
+        .add-cart-large:hover,
+        .add-cart-large:focus,
+        .order-btn:hover,
+        .order-btn:focus {
+            background: var(--main-text-color);
+            /*darker*/
+            border-color: var(--main-text-color);
+        }
+
+        .cart-nav-submit,
+        .cart-nav-more,
+        .cart-nav-solid {
+            background: var(--main-text-color);
+            /*darker*/
+            border-color: var(--main-text-color);
+            /*darker*/
+        }
+
+        .add-cart-large,
+        .order-btn {
+            background: var(--main-text-color);
+            border-color: var(--main-text-color);
+        }
+
+        .cart-nav-light:hover,
+        .cart-nav-light:active,
+        .cart-nav-light:focus {
+            color: var(--main-color);
+        }
+
+        .cart-nav-light {
+            border-color: var(--main-text-color);
+            /*darker*/
+            color: var(--main-text-color);
+            /*darker*/
+        }
+
+        .cart-line {
+            border-color: var(--main-color);
+            /*lighter*/
+        }
+
+        .cart-number {
+            color: var(--main-text-color);
+            /*lighter*/
+            border-color: var(--main-color);
+            /*lighter*/
+        }
+
+        .active-step .cart-number {
+            background: var(--main-color);
+            border-color: var(--main-color);
+        }
+
+        .cart-title {
+            color: var(--main-color) !important;
+            /*lighter*/
+        }
+
+        #salla_bar {
+            border-top-color: var(--main-color);
+        }
+
+        #salla_bar .checkout-button {
+            background: var(--main-text-color);
+        }
+
+        .choice.border-info-600.text-info-800 {
+            color: var(--main-text-color) !important;
+            border-color: var(--main-text-color) !important;
+        }
+
+        .payment-method.active {
+            background: var(--main-text-color) !important;
+        }
+
+        .pagination>.active>span {
+            background-color: var(--main-text-color) !important;
+            border-color: var(--main-text-color) !important;
+        }
+
+        /*.order-num { color: var(--main-text-color); }*/
+
+        .product-side-container .product-order-container .panel-heading {
+            background: var(--main-color) !important;
+            border-bottom-color: var(--main-color) !important;
+            color: #fff !important;
+        }
+
+        .testimonial-header,
+        .owl-theme .owl-nav [class*=owl-] {
+            background: var(--main-color) !important;
+        }
+
+        a:hover,
+        a:focus {
+            color: #fff;
+        }
+
+        .sub-nav__menu:hover svg {
+            fill: var(--main-text-color);
+        }
+
+        .site-header__cart .badge {
+            background: var(--main-text-color);
+        }
+
+        .circle-action:hover {
+            background: var(--main-text-color);
+            border-color: var(--main-text-color);
+        }
+
+        .sub-nav .main-menu>li:hover>a,
+        .sub-nav .main-menu>li:hover>a>i {
+            color: var(--main-text-color);
+        }
+
+        .sub-nav li>ul a:hover {
+            color: var(--main-text-color2);
+        }
+
+        .slick-active button {
+            background-color: var(--main-text-color) !important;
+        }
+
+        .product:hover .product-title {
+            color: var(--main-text-color);
+        }
+
+        .product-price,
+        .product-details__price {
+            color: var(--main-text-color);
+        }
+
+        .product-add:hover {
+            background-color: var(--main-color) !important;
+            border-color: var(--main-color);
+        }
+
+        .sub-nav__menu:hover {
+            color: var(--main-color) !important;
+        }
+
+        .login-container .border-yellow-dark {
+            border-color: var(--main-text-color);
+        }
+
+        .login-container .text-yellow-dark {
+            color: var(--main-text-color);
+        }
+
+
+        .sub-nav-header {
+            background: var(--main-color);
+        }
+
+        .sub-nav-header a {
+            color: var(--main-color);
+        }
+
+        .btn-primary {
+            background: var(--main-text-color);
+            border-color: var(--main-text-color);
+        }
+
+        .btn-primary:focus,
+        .btn-primary.focus,
+        .btn-primary:hover,
+        .btn-primary:active,
+        .btn-primary.active,
+        .btn-primary.active:hover,
+        .btn-primary:active:hover {
+            background: var(--main-text-color2);
+            border-color: var(--main-text-color2);
+        }
+
+        .page-box .panel-heading .product-title {
+            color: var(--main-text-color) !important;
+        }
+
+        #ask_register_link {
+            color: var(--main-text-color) !important;
+        }
+
+        .product-details__hot strong {
+            color: var(--main-text-color) !important;
+        }
+
+        @media (min-width: 992px) {
+            .sub-nav li>ul a:hover {
+                background: var(--main-text-color);
+                color: #fff;
+            }
+        }
+
+
+
+        .site-header__cart .badge {
+            background: var(--main-text-color);
+        }
+
+        .circle-action:hover {
+            background: var(--main-text-color);
+            border-color: var(--main-text-color);
+        }
+
+        .sub-nav .main-menu>li:hover>a {
+            color: var(--main-text-color2);
+        }
+
+        .slick-active button {
+            background-color: var(--main-text-color) !important;
+        }
+
+        .product:hover .product-title {
+            color: var(--main-text-color);
+        }
+
+        .product-price:hover {
+            color: var(--main-text-color);
+        }
+
+        .product-add:hover {
+            background: var(--main-text-color);
+        }
+
+        .social__item a:hover {
+            background: #fff;
+            border-color: var(--main-text-color);
+        }
+
+        .footer-main {
+            border-top-color: var(--main-color);
+        }
+
+        .feature-item__icon {
+            border-color: var(--main-text-color);
+        }
+
+        .landing-page-feature-item__icon {
+            color: var(--main-text-color);
+            border-color: var(--main-text-color);
+        }
+
+        .checker span {
+            border-color: var(--main-text-color) !important;
+        }
+
+        .btn-order-details {
+            background: var(--main-text-color) !important;
+        }
+
+        .section-header .section--title {
+            color: var(--main-text-color);
+        }

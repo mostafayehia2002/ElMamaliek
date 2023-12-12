@@ -15,7 +15,7 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255'],
         ]);
         $user = User::where('email', $request->email)->first();
-        $code=rand(11111111, 99999999);
+        $code=rand(1111, 9999);
         try {
             if (empty($user)) {
                 User::create([

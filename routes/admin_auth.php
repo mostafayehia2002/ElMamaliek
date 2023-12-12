@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AccountController;
 use App\Http\Controllers\Admin\AdminAuth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryChargeController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\OrderChargeController;
 use App\Http\Controllers\Admin\OrderController;
@@ -50,21 +51,11 @@ Route::middleware('auth:admins')->group(function () {
     });
     //
     Route::controller(CategoryChargeController::class)->group(function (){
-        Route::get('category', 'index')->name('showCategories');
-        Route::Post('category/store', 'store')->name('storeCategory');
-        Route::get('category/edit/{id}', 'edit')->name('editCategory');
-        Route::Post('category/update/{id}', 'update')->name('updateCategory');
-        Route::get('category/delete/{id}', 'delete')->name('deleteCategory');
-    });
-    Route::controller(ProductController::class)->group(function (){
-        Route::get('products', 'index')->name('showProducts');
-        Route::Post('products/store', 'store')->name('storeProduct');
-        Route::get('products/delete/{id}', 'delete')->name('deleteProduct');
-    });
-    Route::controller(OrderController::class)->group(function (){
-        Route::get('orders', 'index')->name('showOrders');
-        Route::get('orders/delete/{id}', 'delete')->name('deleteOrder');
-        Route::get('orders/accept/{id}', 'acceptOrder')->name('acceptOrder');
+        Route::get('category/charge', 'index')->name('showCategories');
+        Route::Post('category/charge/store', 'store')->name('storeCategory');
+        Route::get('category/charge/edit/{id}', 'edit')->name('editCategory');
+        Route::Post('category/charge/update/{id}', 'update')->name('updateCategory');
+        Route::get('category/charge/delete/{id}', 'delete')->name('deleteCategory');
     });
     //charges
     Route::controller(ProductChargeController::class)->group(function (){
@@ -77,6 +68,21 @@ Route::middleware('auth:admins')->group(function () {
         Route::get('order_charges/delete/{id}', 'delete')->name('deleteOrderCharge');
         Route::get('order_charges/accept/{id}', 'acceptOrder')->name('acceptOrderCharge');
     });
+    // basic category
+    Route::controller(CategoryController::class)->group(function (){
+        Route::Post('category/store', 'store')->name('storeCategories');
+    });
+    Route::controller(ProductController::class)->group(function (){
+        Route::get('products', 'index')->name('showProducts');
+        Route::Post('products/store', 'store')->name('storeProduct');
+        Route::get('products/delete/{id}', 'delete')->name('deleteProduct');
+    });
+    Route::controller(OrderController::class)->group(function (){
+        Route::get('orders', 'index')->name('showOrders');
+        Route::get('orders/delete/{id}', 'delete')->name('deleteOrder');
+        Route::get('orders/accept/{id}', 'acceptOrder')->name('acceptOrder');
+    });
+
 //users
     Route::controller(UserController::class)->group(function (){
         Route::get('users', 'index')->name('showUsers');
