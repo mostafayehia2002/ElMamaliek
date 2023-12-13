@@ -75,6 +75,8 @@
             }
         }
     });
+
+
     function sendCode(email) {
         $.ajax({
             url:'register',
@@ -87,5 +89,17 @@
                 console.log(response);
             }
         });
+    }
+</script>
+
+<script>
+    let message=document.querySelectorAll('.message');
+    if( message){
+        setTimeout(()=>{
+            message.forEach((e)=>{
+                e.style.display="none";
+            })
+
+        },3000)
     }
 </script>

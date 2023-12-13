@@ -34,7 +34,6 @@ let inputUpload = document.getElementById("userPhoto");
 /****************/
 let message=document.querySelectorAll('.message');
 if( message){
-
     setTimeout(()=>{
         message.forEach((e)=>{
             e.style.display="none";

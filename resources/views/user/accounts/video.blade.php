@@ -24,78 +24,11 @@
 <body
     class="store-home salla-theme_6 color-mode-dark font-dinnextltarabic-regular"
 >
-<header class="site-header">
-    <div class="sub-header p-10 d-lg-block">
-        <div class="container">
-            <div class="row header-wrapper">
-                <div class="col-lg-6" style="text-align: right">
-                    <a
-                        href="tel:+962777515306"
-                        class="d-lg-inline-block d-none th-main-phone-no"
-                        style="direction: ltr"
-                    >
-                        <span>+962777515306</span>
-                        <span class="sicon-phone-talking"></span>
-                    </a>
-                </div>
-                <div class="col-lg-6 text-left">
-                    <div id="cl_switcher_wrapper"></div>
 
-                    <div
-                        class="dropdown dropdown-store-header dropdown-store-header-left hidden-xs"
-                    >
-                        <button
-                            type="button"
-                            class="circle-action dropdown-toggle open-button"
-                            data-toggle="modal"
-                            data-target="#exampleModalCenter"
-                        >
-                            <span class="sicon-user"></span>
-                        </button>
+@include('user.layouts.navbar')
+@include('user.layouts.login')
+@include('user.layouts.notification')
 
-                        <!-- Modal -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container py-3 header-top">
-        <div class="row header-wrapper">
-            <div class="col-md-6 logo-wrapper d-flex d-lg-block">
-                <a href="#" class="sub-nav__menu ml-2">
-                    <svg
-                        width="30px"
-                        height="30px"
-                        version="1.1"
-                        viewBox="0 0 100 100"
-                        xmlns=""
-                    >
-                        <path
-                            d="m23 29c-1.6562 0-3 1.3438-3 3s1.3438 3 3 3h54c1.6562 0 3-1.3438 3-3s-1.3438-3-3-3zm0 18c-1.6562 0-3 1.3438-3 3s1.3438 3 3 3h54c1.6562 0 3-1.3438 3-3s-1.3438-3-3-3zm0 18c-1.6562 0-3 1.3438-3 3s1.3438 3 3 3h54c1.6562 0 3-1.3438 3-3s-1.3438-3-3-3z"
-                        />
-                    </svg>
-                </a>
-                <h1 class="logo">
-                    <a href="https://king2game.shop">
-                        <img
-                            src="https://king2game.shop/vistor/img/t.png"
-                            alt="متجر الممالك"
-                        />
-                    </a>
-                </h1>
-            </div>
-            <div class="col-md-6 d-lg-block actions-container">
-                <button
-                    class="circle-action d-lg-nones site-header__mine-cart"
-                    id="btn-notification"
-                >
-                    <span class="sicon-bell"></span>
-                    <span class="badge" data-cart-badge="">3</span>
-                </button>
-            </div>
-        </div>
-    </div>
-</header>
 <section class="vd">
     <iframe  src="{{asset('admin/admin_image/products/accounts/'.$account->video)}}">
     </iframe>
@@ -108,8 +41,6 @@
         </button>
     </a>
 </section>
-
-
 
 <section id="offer">
     <div class="container">
@@ -328,6 +259,7 @@
 </section>
 
 </body>
+@include('user.layouts.script')
 <script src="{{asset('user/js/jquery-3.2.1.min.js')}}"></script>
 <script src="{{asset('user/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('user/js/owl.carousel.min.js')}}"></script>

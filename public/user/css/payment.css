@@ -247,6 +247,13 @@ h6 {
   width: 85%;
   height: 70%;
 }
+.payment-btn input{
+    width: 100%;
+    margin-bottom: 0;
+    font-weight: 500 !important;
+    border:none;
+    background-color: #e9ecef;
+}
 .instructions {
   display: flex;
   flex-direction: column;

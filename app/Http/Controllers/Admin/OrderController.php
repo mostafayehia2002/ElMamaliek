@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\Product;
+use App\Notifications\SendCodeProduct;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Storage;
 
 class OrderController extends Controller
@@ -29,6 +31,7 @@ class OrderController extends Controller
         $order->update(['status'=>'قبول']);
         $order->product->update(['status'=>'غير متاح']);
         //send code to email && notification
+        Notification::send($order->user,new SendCodeProduct($order->user->email, $order->product->product_name ,$order->product->code));
         return redirect()->back()->with('success','تم ارسال الكود بنجاح ');
     }
 }

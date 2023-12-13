@@ -7,16 +7,21 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class SendMessage extends Notification
+class SendCodeProduct extends Notification
 {
     use Queueable;
-
+    private $name;
+    private  $product;
+    private $code;
     /**
      * Create a new notification instance.
      */
-    public function __construct()
+    public function __construct($name,$product,$code)
     {
         //
+        $this->name=$name;
+        $this->product=$product;
+        $this->code=$code;
     }
 
     /**
@@ -26,7 +31,7 @@ class SendMessage extends Notification
      */
     public function via(object $notifiable): array
     {
-        return ['mail'];
+        return ['mail','database'];
     }
 
     /**
@@ -34,10 +39,9 @@ class SendMessage extends Notification
      */
     public function toMail(object $notifiable): MailMessage
     {
-        return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+        return (new MailMessage)->markdown(
+            'emails.sendCode', ['user' => $this->name,'product'=>$this->product,'code'=>$this->code]
+        )->subject('طلب شراء');
     }
 
     /**
@@ -48,7 +52,11 @@ class SendMessage extends Notification
     public function toArray(object $notifiable): array
     {
         return [
-            //
+            'type'=>'شراء',
+            'name'=>$this->name,
+            'product'=>" $this->product",
+            'code'=>" $this->code",
+            'message'=> 'هذا هو الكود الخاص بالمنتج الذي قمت بشرائه'
         ];
     }
 }

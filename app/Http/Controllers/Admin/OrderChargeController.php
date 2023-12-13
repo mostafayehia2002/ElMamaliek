@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\Order_Charge;
+use App\Notifications\SendChargeProduct;
+use App\Notifications\SendCodeProduct;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Storage;
 
 class OrderChargeController extends Controller
@@ -19,6 +22,7 @@ class OrderChargeController extends Controller
         $order->update(['status'=>'قبول']);
         $order->product->update(['status'=>'غير متاح']);
         //send code to email && notification
+        Notification::send($order->user,new SendChargeProduct($order->user->email,$order->product->name));
         return redirect()->back()->with('success','تم الشحن بنجاح ');
     }
 
