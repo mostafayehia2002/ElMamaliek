@@ -6,9 +6,6 @@
     عرض جميع الادمن
 @endsection
 @section('content')
-    @if(session('success'))
-        <div  class="success-massage message">{{session()->get('success')}}</div>
-    @endif
     <div class="container" style="overflow-x: auto">
         <table id="example" class="table table-striped" style="width:100%">
             <thead>

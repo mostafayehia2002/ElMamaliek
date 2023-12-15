@@ -37,14 +37,41 @@
     <meta name="twitter:url" content="https://king2game.shop" />
     <script
         type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"WebPage","name":"Over 9000 Thousand!","description":"وجهتك لعالم التقنية متجر العرب جميع الخدمات الرقمية هنا و اشتراكات البلس اكواد الالعاب ببجي بلس واتس بلس انستقرام بلس برامج بلس عروض"}</script>
-    <link rel="stylesheet" href="{{asset('user/css/app29f4.css')}}" />
-    <link rel="stylesheet" href="{{asset('user/css/themes0af0.css')}}">
-    <link rel="stylesheet" href="{{asset('user/css/plugins3ee9.css')}}">
-    <link rel="stylesheet" href="{{asset('user/css/slick-themeb521.css')}}">
-    <link rel="stylesheet" href="{{asset('user/css/fonts/sallaiconse8da.css')}}" />
-    <link rel="stylesheet" href="{{asset('user/css/mainb521.css')}}">
-    <link rel="stylesheet" href="{{asset('user/css/theme-customb521.css?v=v1.5.781')}}">
-    <link rel="stylesheet" href="{{asset('user/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('user/css/stayle.css')}}">
-    <link rel="stylesheet" href="{{asset('user/css/main.css')}}">
+
+
+
+<link rel="stylesheet" href="{{asset('user/css/app29f4.css')}}" />
+<link rel="stylesheet" href="{{asset('user/css/themes0af0.css')}}">
+<link rel="stylesheet" href="{{asset('user/css/plugins3ee9.css')}}">
+<link rel="stylesheet" href="{{asset('user/css/slick-themeb521.css')}}">
+<link rel="stylesheet" href="{{asset('user/css/fonts/sallaiconse8da.css')}}" />
+<link rel="stylesheet" href="{{asset('user/css/mainb521.css')}}">
+<link rel="stylesheet" href="{{asset('user/css/theme-customb521.css?v=v1.5.781')}}">
+<link rel="stylesheet" href="{{asset('user/css/bootstrap.min.css')}}">
+<link rel="stylesheet" href="{{asset('user/css/stayle.css')}}">
+<link rel="stylesheet" href="{{asset('user/css/main.css')}}">
+
+<style>
+    .actions-container{
+        margin-left: -30px;
+    }
+    @media (max-width: 767px) {
+        .actions-container{
+            width: 50px;
+            position: absolute;
+            left: 50px;
+
+        }
+    }
+</style>
+
+<link rel="stylesheet" href="{{asset('user/css/app29f4.css')}}">
+<link rel="stylesheet" href="{{asset('user/css/themes0af0.css')}}">
+<link rel="stylesheet" href="{{asset('user/css/plugins3ee9.css')}}">
+<link rel="stylesheet" href="{{asset('user/css/theme-customb521.css')}}">
+<link rel="stylesheet" href="{{asset('user/css/sallaiconse8da.css')}}">
+<link rel="stylesheet" href="{{asset('user/css/mainb521.css')}}">
+<link rel="stylesheet" href="{{asset('user/css/stayle.css')}}">
+<link rel="stylesheet" href="{{asset('user/css/theme-customb521.css')}}">
+<link rel="stylesheet" href="{{asset('user/css/main.css')}}">
 

@@ -1520,6 +1520,7 @@ button.login-option {
     height: 48px;
     width: 48px;
     border-radius: 50px;
+    /* margin-right: 20px; */
 }
 
 .notification-list .notification-list_content .notification-list_detail p {
@@ -1529,20 +1530,6 @@ button.login-option {
 .modal-header .close {
     left: 14px;
     top: 24%;
-}
-.sicon-bell{
-    font-size: 20px;
-}
-.fs-rights{
-    background: #000000;
-    border-top: 2px solid rgb(255, 166, 0);
-    padding: 10px;
-
-}
-.card-body{
-    background: #fff;
-    border-bottom-right-radius: 20px;
-    border-bottom-left-radius: 20px;
 }
 @media (max-width:767px) {
     .form-container {
@@ -1564,13 +1551,10 @@ button.login-option {
         right: 0;
         top:60px;
         left: auto;
-        z-index: 9999999;
+
     }
     .sub-header.p-10 {
         display: none;
-    }
-    .fs-payment{
-        margin-bottom: 15px;
     }
 
 }

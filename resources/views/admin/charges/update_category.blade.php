@@ -14,9 +14,6 @@
                         <div class="alert alert-danger message">{{$error}}</div>
                     @endforeach
                 @endif
-                    @if(session('success'))
-                        <div  class="success-massage message">{{session()->get('success')}}</div>
-                    @endif
                     <div class="input-field file">
                         <label for="userPhoto">الصورة:</label>
                         <br>

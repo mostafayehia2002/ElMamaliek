@@ -20,7 +20,6 @@ class OrderChargeController extends Controller
     public function acceptOrder($id){
         $order=Order_Charge::with('product')->where('id',$id)->first();
         $order->update(['status'=>'قبول']);
-        $order->product->update(['status'=>'غير متاح']);
         //send code to email && notification
         Notification::send($order->user,new SendChargeProduct($order->user->email,$order->product->name));
         return redirect()->back()->with('success','تم الشحن بنجاح ');

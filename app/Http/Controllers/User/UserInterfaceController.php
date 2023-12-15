@@ -37,15 +37,16 @@ class UserInterfaceController extends Controller
 
     //category with code
     public function codeProducts($id){
-       $codes=Product::where('category_id',$id)->where('status','متاح')->get();
-
-       return view('user.codes.products_codes',compact('codes'));
+       $codes=Product::where('category_id',$id)->get();
+        $category_name=Category::find($id);
+       return view('user.codes.products_codes',compact('codes','category_name'));
     }
 
     public function paymentCode($category_id,$product_id){
          $countries=Country::all();
         if(!Auth::guard('web')->check()){
-            return  redirect()->route('home')->with('login-error','يرجي تسجيل الدخول');
+
+            return  redirect()->back()->with('error','يرجي تسجيل الدخول');
         }
         return view('user.codes.payment',compact('countries','category_id','product_id'));
     }
@@ -71,18 +72,23 @@ class UserInterfaceController extends Controller
             'process_number'=>$request->process_number,
             'process_photo'=>$photo,
         ]);
-        return redirect()->back()->with('success','تم طلب المنتج بنجاح في انتظار الموافقة');
+        toastr()->success('تم طلب المنتج بنجاح في انتظار الموافقة');
+        return redirect()->back();
     }
 
     //charge product
     public function chargeProducts($id){
-        $charges=Product_Charge::where('category_id',$id)->where('status','متاح')->get();
-        return view('user.charges.products_charges',compact('charges'));
+        $charges=Product_Charge::where('category_id',$id)->get();
+        $category_name=Category_Charge::find($id);
+        return view('user.charges.products_charges',compact('charges','category_name'));
     }
     public function paymentCharge($category_id,$product_id){
         $countries=Country::all();
         if(!Auth::guard('web')->check()){
-            return  redirect()->route('home')->with('login-error','يرجي تسجيل الدخول');
+
+            return  redirect()->back()->with('error','يرجي تسجيل الدخول');
+
+
         }
         return view('user.charges.payment',compact('countries','category_id','product_id'));
     }
@@ -110,11 +116,9 @@ class UserInterfaceController extends Controller
         'process_photo'=>$photo,
         'user_number'=>$request->user_id,
     ]);
-
-        return redirect()->back()->with('success','تم طلب المنتج بنجاح في انتظار الموافقة');
+        toastr()->success('تم طلب المنتج بنجاح في انتظار الموافقة');
+        return redirect()->back();
     }
-
-
 
     //get payments of country
     public function getPayments($id){
@@ -125,7 +129,5 @@ class UserInterfaceController extends Controller
         }
         return response()->json([$payments]);
     }
-
-
 }
 

@@ -9,9 +9,6 @@
     <form action="{{route('admin.storeAdmin')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="all-fields">
-            @if(session('success'))
-                <div  class="success-massage message">{{session()->get('success')}}</div>
-            @endif
           {{-- error  validation message--}}
                 @if($errors->any())
                     @foreach ($errors->all() as $error)

@@ -21,10 +21,8 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request): RedirectResponse
     {
         $request->authenticate();
-
         $request->session()->regenerate();
-
-        return redirect()->route('home');
+        return redirect()->route('home')->with('success','تم تسجيل الدخول بنجاح');
     }
 
     /**
@@ -38,6 +36,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/')->with('success','تم تسجيل الخروج بنجاح');
     }
 }

@@ -17,9 +17,7 @@
             </button>
         </div>
        <br>
-        @if(session('success'))
-            <div  class="success-massage message">{{session()->get('success')}}</div>
-        @endif
+
         @if($errors->any())
             @foreach ($errors->all() as $error)
                 <div class="alert alert-danger message">{{$error}}</div>

@@ -58,9 +58,6 @@
                 </div>
             </div>
         </div>
-        @if(session('success'))
-            <div  class="success-massage message">{{session()->get('success')}}</div>
-         @endif
         {{-- error  validation message--}}
         @if($errors->any())
             @foreach ($errors->all() as $error)

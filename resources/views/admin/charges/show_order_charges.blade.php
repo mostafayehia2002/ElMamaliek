@@ -8,9 +8,6 @@
 @endsection
 @section('content')
     <div class="container" style="overflow-x: auto">
-        @if(session('success'))
-            <div  class="success-massage message">{{session()->get('success')}}</div>
-        @endif
         <table id="example" class="table table-striped" style="width:100%">
             <thead>
             <tr>
