@@ -40,10 +40,9 @@ class SendCodeProduct extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)->markdown(
-            'emails.sendCode', ['user' => $this->name,'product'=>$this->product,'code'=>$this->code]
-        )->subject('طلب شراء');
+            'emails.sendcode', ['user' => $this->name,'product'=>$this->product,'code'=>$this->code]
+                )->subject('طلب شراء');
     }
-
     /**
      * Get the array representation of the notification.
      *

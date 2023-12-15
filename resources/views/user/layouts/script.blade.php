@@ -60,38 +60,6 @@
         document.getElementById("myForm").style.display = "none";
     }
 </script>
-{{--Send Code --}}
-<script src={{asset('https://code.jquery.com/jquery-3.7.0.js')}}></script>
-<script>
-    document.addEventListener('click',function (e) {
-        if(e.target.classList.contains('btn-code')){
-
-            let email= document.querySelector('#email').value;
-
-            if(email.trim() !== '') {
-                sendCode(email);
-            }else{
-                alert('يرجي ادخال البريد الالكتروني');
-            }
-        }
-    });
-
-
-    function sendCode(email) {
-        $.ajax({
-            url:'register',
-            method:'POST',
-            data: {
-                _token: "{{csrf_token()}}",
-                email:email,
-            },
-            success: function(response) {
-                console.log(response);
-            }
-        });
-    }
-</script>
-
 <script>
     let message=document.querySelectorAll('.message');
     if( message){

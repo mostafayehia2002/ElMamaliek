@@ -11,7 +11,7 @@
                         <a href="#" style="background-image:url('https://king2game.shop/vistor/img/اكشخ وتميز.jpg')"
                            rel="noopener noreferrer">
                         </a>
-                        <img class="cat-featured-img" src="https://king2game.shop/vistor/img/اكشخ وتميز.jpg" alt=""/>
+                        <img class="cat-featured-img" src="{{asset('user/img/catrgory.jpg')}}" alt=""/>
                     </div>
                 </div>
             </div>
@@ -46,7 +46,6 @@
         </div>
     </section>
     {{--End Charge Category--}}
-
 @endsection
 
 

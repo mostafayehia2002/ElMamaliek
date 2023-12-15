@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Notification;
 class RegisteredUserController extends Controller
 {
     private $code;
-    public function store(Request $request)
+    public function requestCode(Request $request)
     {
         $request->validate([
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255'],

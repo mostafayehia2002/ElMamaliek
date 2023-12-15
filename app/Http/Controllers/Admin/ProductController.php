@@ -47,10 +47,12 @@ class ProductController extends Controller
 
         return redirect()->back()->with('success','تم اضافة المنتج بنجاح');
     }
+
+
     public function delete($id){
-        $product=Product::findOrFail($id);
+        $product=Product::find($id);
         $photo= $product->photo;
-        $product->delete();
+        $product->delete($id);
         Storage::disk('admin')->delete('/products/products_code/'.$photo);
         return redirect()->back()->with('success','تم حذف المنتج بنجاح');
     }

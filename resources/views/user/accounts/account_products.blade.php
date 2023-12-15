@@ -16,7 +16,7 @@
             <div class="section-header mb-4 d-flex">
                 <h1 class="section--title">
                 <span>
-                    جواهر فري فاير
+                  بيع وشراء حسابات
                 </span>
                 </h1>
                 <div id="sort" class="sort">

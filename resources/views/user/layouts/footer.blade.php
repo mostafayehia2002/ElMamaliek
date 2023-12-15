@@ -62,11 +62,10 @@
                                 </div>
                             </div>
                         </div> <div>
-                            <img src="https://king2game.shop/vistor/cdn.assets.salla.network/stores/themes/default/assets/images/madab521.png?v=v1.5.781" alt=" ">
-                            <img src="https://king2game.shop/vistor/cdn.assets.salla.network/stores/themes/default/assets/images/ccb521.png?v=v1.5.781" alt=" ">
-                            <img src="https://king2game.shop/vistor/cdn.assets.salla.network/stores/themes/default/assets/images/bankb521.png?v=v1.5.781" alt=" ">
-                            <img src="https://king2game.shop/vistor/cdn.assets.salla.network/stores/themes/default/assets/images/stcpayb521.png?v=v1.5.781" alt=" ">
-                            <img src="https://cdn.assets.salla.network/stores/themes/default/assets/images/applepay.svg?v=v1.5.781" alt=" ">
+                            <img src="{{asset('user/img/pay1.png')}}" alt=" ">
+                            <img src="{{asset('user/img/pay2.png')}}" alt=" ">
+                            <img src="{{asset('user/img/pay3.png')}}" alt=" ">
+                            <img src="{{asset('user/img/pay4.png')}}" alt=" ">
                         </div>
                     </div>
                 </div>
