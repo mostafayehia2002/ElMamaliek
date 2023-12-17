@@ -33,7 +33,8 @@ class RegisteredUserController extends Controller
             }
             //send  verification code to email
              Mail::to($user)->send(new Verification($user->email,$this->code));
-            return response()->json(['success' => 'successfully send code','code'=>$this->code]);
+
+           return response()->json(['success' => 'successfully send code','code'=>$this->code]);
 
         }    catch (\Exception $e) {
 

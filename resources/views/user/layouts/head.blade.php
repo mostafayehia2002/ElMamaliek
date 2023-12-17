@@ -1,3 +1,4 @@
+<head>
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,8 +39,6 @@
     <script
         type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"WebPage","name":"Over 9000 Thousand!","description":"وجهتك لعالم التقنية متجر العرب جميع الخدمات الرقمية هنا و اشتراكات البلس اكواد الالعاب ببجي بلس واتس بلس انستقرام بلس برامج بلس عروض"}</script>
 
-
-
 <link rel="stylesheet" href="{{asset('user/css/app29f4.css')}}" />
 <link rel="stylesheet" href="{{asset('user/css/themes0af0.css')}}">
 <link rel="stylesheet" href="{{asset('user/css/plugins3ee9.css')}}">
@@ -64,7 +63,20 @@
         }
     }
 </style>
-
+    <style>
+        .message{
+            height: 40px;
+            width: 96%;
+            text-align: center;
+            padding: 6px;
+            margin: 24px auto;
+        }
+        .success-massage{
+            color: white;
+            background-color: black;
+        }
+        /**/
+    </style>
 <link rel="stylesheet" href="{{asset('user/css/app29f4.css')}}">
 <link rel="stylesheet" href="{{asset('user/css/themes0af0.css')}}">
 <link rel="stylesheet" href="{{asset('user/css/plugins3ee9.css')}}">
@@ -75,3 +87,5 @@
 <link rel="stylesheet" href="{{asset('user/css/theme-customb521.css')}}">
 <link rel="stylesheet" href="{{asset('user/css/main.css')}}">
 
+
+</head>

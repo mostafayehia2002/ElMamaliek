@@ -8,7 +8,7 @@
             <div class="category-grid">
                 <div>
                     <div class="category-featured">
-                        <a href="#" style="background-image:url('https://king2game.shop/vistor/img/اكشخ وتميز.jpg')"
+                        <a href="#" style="background-image:url({{asset('user/img/catrgory.jpg')}})"
                            rel="noopener noreferrer">
                         </a>
                         <img class="cat-featured-img" src="{{asset('user/img/catrgory.jpg')}}" alt=""/>
@@ -26,6 +26,7 @@
                     <a href="{{route('accountProducts')}}">
                         <img src="{{asset('admin/admin_image/category/accounts.jpg')}}" alt="error"/></a>
                 </div>
+
                 <!--categories with code-->
                 @foreach($code_categories as $code)
                     <div class="qsm-box">
@@ -34,6 +35,7 @@
                         </a>
                     </div>
                 @endforeach
+
                 <!--categories with charge-->
                 @foreach($charge_categories as $charge)
                     <div class="qsm-box">
@@ -46,6 +48,7 @@
         </div>
     </section>
     {{--End Charge Category--}}
+
 @endsection
 
 

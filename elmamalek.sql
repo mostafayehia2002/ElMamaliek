@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 13, 2023 at 06:24 PM
+-- Generation Time: Dec 15, 2023 at 11:07 PM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `admins` (
 --
 
 INSERT INTO `admins` (`id`, `name`, `photo`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'hassan', 'profile.jpg', 'hassan@gmail.com', NULL, '$2y$12$YO7Tx/FCHPsBMbu/NW9ZmuIdFp3R98D0bYl19U1tMwgU4PtW0hp1K', NULL, '2023-12-13 16:23:55', '2023-12-13 16:23:55');
+(1, 'hassan', 'profile.jpg', 'hassan@gmail.com', NULL, '$2y$12$EKRiwTZeGdHooWLNYycuPeA5DRgE2GhrN0p24nYrgJDaMQFfG7o5.', NULL, '2023-12-15 21:06:36', '2023-12-15 21:06:36');
 
 -- --------------------------------------------------------
 
@@ -362,16 +362,16 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Constraints for table `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_payment_id_foreign` FOREIGN KEY (`payment_id`) REFERENCES `payments` (`id`),
-  ADD CONSTRAINT `orders_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
+  ADD CONSTRAINT `orders_payment_id_foreign` FOREIGN KEY (`payment_id`) REFERENCES `payments` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `orders_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `orders_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `order_charges`
 --
 ALTER TABLE `order_charges`
-  ADD CONSTRAINT `order_charges_payment_id_foreign` FOREIGN KEY (`payment_id`) REFERENCES `payments` (`id`),
-  ADD CONSTRAINT `order_charges_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `product_charges` (`id`),
+  ADD CONSTRAINT `order_charges_payment_id_foreign` FOREIGN KEY (`payment_id`) REFERENCES `payments` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `order_charges_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `product_charges` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `order_charges_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --

@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('order_charges', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users','id')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignId('product_id')->constrained('product_charges','id')->cascadeOnDelete()->cascadeOnUpdate();;
-            $table->foreignId('payment_id')->constrained('payments')->cascadeOnDelete()->cascadeOnUpdate();;
+            $table->foreignId('product_id')->constrained('product_charges','id')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('payment_id')->constrained('payments')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('price');
             $table->string('process_number');
             $table->string('process_photo');

@@ -56,7 +56,6 @@
              <div class="col-lg-1 col-sm-12 d-lg-block actions-container" >
                 <button   class=" circle-action d-lg-nones site-header__mine-cart" id="btn-notification">
                     <span class="sicon-bell"></span>
-                    <span class="badge" data-cart-badge="">3</span>
                 </button>
             </div>
         </div>
@@ -215,12 +214,11 @@
 {{--Notification--}}
 @if(Auth::guard('web')->check())
     <section class="section-50" id="section-50" style="display: none;" dir="ltr">
-        <div class="container">
+        <div>
             <div class="notification-ui_dd-content">
                 <h4>الاشعارات</h4>
                 @foreach(Auth::user()->notifications as $notification )
                     <div class="notification-list notification-list--unread">
-                        <div class="notification-list_content">
                             <div class="notification-list_detail">
                                 <p>{{$notification->data['type']}}</p>
                                 @if($notification->data['type']=='شراء')
@@ -236,7 +234,6 @@
                     </div>
                 @endforeach
             </div>
-        </div>
     </section>
 @endif
 {{--End Notification--}}

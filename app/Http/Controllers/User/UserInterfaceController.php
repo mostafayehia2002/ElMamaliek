@@ -73,7 +73,7 @@ class UserInterfaceController extends Controller
             'process_photo'=>$photo,
         ]);
         toastr()->success('تم طلب المنتج بنجاح في انتظار الموافقة');
-        return redirect()->back();
+        return redirect()->route('home');
     }
 
     //charge product
@@ -117,7 +117,7 @@ class UserInterfaceController extends Controller
         'user_number'=>$request->user_id,
     ]);
         toastr()->success('تم طلب المنتج بنجاح في انتظار الموافقة');
-        return redirect()->back();
+        return redirect()->route('home');
     }
 
     //get payments of country
