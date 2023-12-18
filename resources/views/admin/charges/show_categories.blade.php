@@ -7,14 +7,12 @@
 @endsection
 @section('content')
     <div class="container" style="overflow-x: auto">
-
-        <div class="col-3">
+        <div class="col-md-6">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AddCategory">
                اضافة قسم شحن
             </button>
         </div>
         <br>
-
         @if($errors->any())
             @foreach ($errors->all() as $error)
                 <div class="alert alert-danger message">{{$error}}</div>

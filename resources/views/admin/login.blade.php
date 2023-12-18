@@ -8,9 +8,12 @@
     <link rel="stylesheet" href={{asset('admin/css/all.min.css')}}>
     <link rel="stylesheet" href={{asset('admin/css/bootstrap.min.css')}}>
     <link rel="stylesheet" href={{asset('admin/css/admin.css')}}>
+    <link rel="stylesheet" href={{asset('admin/css/login.css')}}>
     <title>تسجيل الدخول -لوحة التحكم</title>
 </head>
-<body><div class="login">
+<body>
+<div class="login-container">
+<div class="login">
     <h2 class="header"> لوحة التحكم الرئيسيه</h2>
     <form action="{{route('admin.login')}}"  method="POST"  class="admin-login">
         @csrf
@@ -44,7 +47,6 @@
     </form>
 
 </div>
-
+</div>
 </body>
-
 </html>

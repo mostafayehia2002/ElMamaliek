@@ -6,10 +6,11 @@
     عرض جميع الحسابات
 @endsection
 @section('content')
+
     <div class="container" style="overflow-x: auto">
         <div class="row">
             <!-- Button trigger modal -->
-            <div class="col-3">
+            <div class="col-md-4">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 اضافة حساب جديد
             </button>
