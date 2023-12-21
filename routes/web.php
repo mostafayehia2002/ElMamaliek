@@ -15,8 +15,9 @@ Route::controller(UserInterfaceController::class)->group(function (){
     Route::get('category/{id}/charge/products','chargeProducts')->name('chargeProducts');
     Route::get('category/{category_id}/charge/product/{product_id}','paymentCharge')->name('paymentWithCharge');
     Route::Post('/sendChargeOrder','sendChargeOrder')->name('sendChargeOrder');
-    //getPayments
-    Route::get('getPayments/{id}','getPayments');
+    //getAccount
+    Route::get('getPaymentAccount/{id}','getAccount');
+    Route::get('getAllAccounts/{id}','getAllAccounts');
 });
 require __DIR__.'/auth.php';
 require __DIR__.'/admin.php';

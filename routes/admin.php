@@ -4,7 +4,7 @@ use App\Models\Admin;
 use App\Models\Category_Charge;
 use App\Models\Order;
 use App\Models\Order_Charge;
-use App\Models\Payment;
+use App\Models\PaymentAccount;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 Route::prefix('admin')->name('admin.')->group(function (){

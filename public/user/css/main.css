@@ -847,16 +847,18 @@ body {
 /*   السلــــة يميـــــن   */
 .circle-action {
     border: solid 2px;
-    border-color: #ffb71b ;
+    border-color: #ffb71b;
     background: transparent;
     color: #fff;
     border-radius: 5px !important;
 
 }
+
 .circle-action:hover {
     border: solid 2px;
     border-color: #ffb71b;
 }
+
 .cart-nav-submit,
 .cart-nav-more,
 .cart-nav-solid {
@@ -1388,8 +1390,8 @@ button:focus {
     color: #000 !important;
 }
 
-.salla-theme_6.color-mode-dark .site-header .modal .sicon-user ,
-.modal-body .sicon-user{
+.salla-theme_6.color-mode-dark .site-header .modal .sicon-user,
+.modal-body .sicon-user {
     color: #3a075f;
 }
 
@@ -1409,8 +1411,8 @@ button:focus {
     margin-bottom: 22px;
 }
 
-#login-panel-actions>p::before ,
-#login-panell-actions>p::before{
+#login-panel-actions>p::before,
+#login-panell-actions>p::before {
     content: "";
     height: 1px;
     background: rgba(0, 0, 0, 0.10);
@@ -1419,8 +1421,8 @@ button:focus {
     margin-top: 4px;
 }
 
-#login-panel-actions>p::after ,
-#login-panell-actions>p::after{
+#login-panel-actions>p::after,
+#login-panell-actions>p::after {
     content: "";
     height: 1px;
     background: rgba(0, 0, 0, 0.10);
@@ -1441,13 +1443,16 @@ button.login-option {
     height: 100px;
     flex: 1 0 0 !important;
 }
+
 .input-group-addon>i.sicon-mail {
     right: -8px;
     position: relative;
 }
-#verification{
+
+#verification {
     display: none;
 }
+
 .section-50 {
     height: 200px;
     width: 400px;
@@ -1462,13 +1467,16 @@ button.login-option {
     z-index: 1000;
 
 }
+
 .section-50 p,
-.section-50 h4{
+.section-50 h4 {
     color: brown;
 }
-.section-50 h4{
+
+.section-50 h4 {
     padding: 10px;
 }
+
 .m-b-50 {
     margin-bottom: 50px;
 }
@@ -1495,6 +1503,7 @@ button.login-option {
 .notification-ui_dd-content {
     margin-bottom: 30px;
 }
+
 .notification-list {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1530,10 +1539,12 @@ button.login-option {
     margin-bottom: 5px;
     line-height: 1.2;
 }
+
 .modal-header .close {
     left: 14px;
     top: 24%;
 }
+
 @media (max-width:767px) {
     .form-container {
         text-align: left;
@@ -1542,21 +1553,24 @@ button.login-option {
     .row.header-wrapper {
         flex-wrap: nowrap;
     }
-    .modal-dialog{
+
+    .modal-dialog {
         top: 20%;
         transform: none;
         margin: 10px;
         width: 400px;
     }
-    .section-50{
+
+    .section-50 {
         width: 80%;
         position: fixed;
         margin: 10px;
         right: 0;
-        top:60px;
+        top: 60px;
         left: auto;
         z-index: 1000;
     }
+
     .sub-header.p-10 {
         display: none;
     }

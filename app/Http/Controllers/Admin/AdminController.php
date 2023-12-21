@@ -36,6 +36,12 @@ class AdminController extends Controller
             'name' => ['required', 'unique:admins,name'],
             'password' => 'required',
             'email' => ['required', 'unique:admins,email'],
+        ],[
+          'name.required'  =>'تم اضافة المستخدم بنجاح',
+            'name.unique'=>'هذا الاسم موجود مسبقا',
+            'email.unique'=>'البريد الالكتروني موجود مسبقا',
+            'email.required'=>'يرجي ادخال البريد الالكتروني',
+              'password.required' => 'يرجي ادخال الرقم السري',
         ]);
         Admin::create([
             'name' => $r->name,
@@ -66,8 +72,13 @@ class AdminController extends Controller
         }
 
         $r->validate([
-            'name' => 'required',
+            'name' => 'required|unique:admins,name,'.$id,
             'email' => 'required|unique:admins,email,'.$id,
+        ],[
+            'name.required'  =>'تم اضافة المستخدم بنجاح',
+            'name.unique'=>'هذا الاسم موجود مسبقا',
+            'email.unique'=>'البريد الالكتروني موجود مسبقا',
+            'email.required'=>'يرجي ادخال البريد الالكتروني'
         ]);
         if ($r->has('password') && !empty($r->password)) {
             $admin->update([
@@ -83,7 +94,6 @@ class AdminController extends Controller
                 'photo' => $img,
             ]);
         }
-
         return redirect()->route('admin.showAdmins')->with('success', 'تم تعديل البيانات بنجاح');
     }
 

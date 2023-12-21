@@ -19,12 +19,12 @@ class CategoryController extends Controller
             'name.required' => 'اسم القسم مطلوب',
             'photo.required' => 'صورة القسم مطلوبة'
         ]);
-        $photo = time().$request->file('photo')->getClientOriginalName();
-        $request->file('photo')->storeAs('/category/',$photo, 'admin');
-    Category::create([
+        $photo = time() . $request->file('photo')->getClientOriginalName();
+        $request->file('photo')->storeAs('category/', $photo, 'admin');
+       Category::create([
         'name'=>$request->name,
         'photo'=>$photo,
-    ]);
+       ]);
      return redirect()->back()->with('success','تم اضافة القسم بنجاح');
     }
 }

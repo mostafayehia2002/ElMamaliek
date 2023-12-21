@@ -1,6 +1,6 @@
 @extends('user.layouts.home')
 @section('title')
-    متجر المماليك
+    متجر الممالك
 @endsection
 @section('content')
     <section class="section">
@@ -26,7 +26,6 @@
                     <a href="{{route('accountProducts')}}">
                         <img src="{{asset('admin/admin_image/category/accounts.jpg')}}" alt="error"/></a>
                 </div>
-
                 <!--categories with code-->
                 @foreach($code_categories as $code)
                     <div class="qsm-box">
@@ -35,7 +34,6 @@
                         </a>
                     </div>
                 @endforeach
-
                 <!--categories with charge-->
                 @foreach($charge_categories as $charge)
                     <div class="qsm-box">
@@ -48,7 +46,6 @@
         </div>
     </section>
     {{--End Charge Category--}}
-
 @endsection
 
 

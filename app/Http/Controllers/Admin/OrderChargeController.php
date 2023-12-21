@@ -19,16 +19,15 @@ class OrderChargeController extends Controller
     }
     public function acceptOrder($id){
         $order=Order_Charge::with('product')->where('id',$id)->first();
-        $order->update(['status'=>'قبول']);
+        $order->update(['status'=>'تم الموافقة']);
         //send code to email && notification
         Notification::send($order->user,new SendChargeProduct($order->user->email,$order->product->name));
         return redirect()->back()->with('success','تم الشحن بنجاح ');
     }
-
     public function delete($id){
         $order=Order_Charge::findOrFail($id);
-        $photo=$order->photo;
-        Storage::disk('admin')->delete('/orders/'.$photo);
+        $photo=$order->process_photo;
+        Storage::disk('admin')->delete('orders/'.$photo);
         $order->delete();
         return redirect()->back()->with('success','تم حذف الطلب بنجاح');
     }

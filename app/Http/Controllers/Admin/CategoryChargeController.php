@@ -62,8 +62,12 @@ class CategoryChargeController extends Controller
 
 
     public function delete($id){
-        $category = Category_Charge::findOrFail($id);
-        Storage::disk('admin')->delete('category/' . $category->photo);
+        $category = Category_Charge::with('products')->findOrFail($id);
+
+        foreach($category->products as $product){
+            Storage::disk('admin')->delete('products/products_charge/'.$product->photo);
+        }
+        Storage::disk('admin')->delete('category/'.$category->photo);
         $category->delete();
         return redirect()->route('admin.showCategories')->with('success', 'تم حذف القسم بنجاح');
     }

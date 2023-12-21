@@ -1,187 +1,286 @@
 <!DOCTYPE html>
-<html dir="rtl">
-    <head>
+<html lang="ar" xmlns="http://www.w3.org/1999/html">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta http-equiv="Content-Language" content="ar">
-    <link rel="stylesheet" href="{{asset('user/css/payment.css')}}" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-        <style>
-            .message{
-                height: 40px;
-                width: 96%;
-                text-align: center;
-                padding: 6px;
-                margin: 24px auto;
-            }
-            .success-massage{
-                color: white;
-                background-color: black;
-            }
-            /**/
-        </style>
-  </head>
-  <body>
+    <!-- link css -->
+    <link rel="stylesheet" href="{{asset('user/css/stylee.css')}}">
+    <!-- link bootstrap -->
+    <link rel="stylesheet" href="{{asset('user/css/bootstrap1.min.css')}}">
 
-    <div class="nav-container">
-        <nav class="nav-content">
-          <ul>
-            <div class="nav-logo">
-                <h4>ايداع رصيد</h4>
-              </div>
-        <div class="fl_r">
-            <div style="background-color: black; width: 30px;height: 30px; display: flex; justify-content: center;
-            align-items: center; border-radius: 8px;">
-                <a href="#"><i class="fa-solid fa-user fa-lg" style="color: #ffff; "></i></a>
-            </div>
-            <div style="background-color: black; width: 30px;height: 30px; display: flex; justify-content: center;
-            align-items: center; border-radius: 8px;">
-                <a href="#"><i class="fa-solid fa-bell fa-lg" style="color: #ffff;"></i></a>
-            </div>
-            <a id="barBtn" style="width: 40px;" href="#"><i class="fa-solid fa-bars fa-2x" style="color: #000000;"></i></i></a>
-            <div id="helloBtn">
-                <h6 >مرحباً</h6>
-                <h5 >haso hosenat</h5>
-            </div>
-        </div>
-
-          </ul>
-        </nav>
-    </div>
-
-
-    {{-- error  validation message--}}
-    @if($errors->any())
-        @foreach ($errors->all() as $error)
-            <div class="alert alert-danger message">{{$error}}</div>
-        @endforeach
-    @endif
-    <header style="background-color: #f9f9fb;">
-        <div class="head-conatiner">
+    <!-- font icons library -->
+    <link rel="stylesheet" href="{{asset('user/css/all.min.css')}}">
+    <title>انهاء الدفع</title>
+</head>
+<body dir="rtl">
+{{--Start container--}}
+<div class="container" style="margin-top: 50px; margin-bottom: 50px;">
+    <div class="row ">
+        <!-- start header -->
+        <header class="d-flex">
             <div>
-            <select class="country-select form-select-lg mb-3" name="country">
-                <option  selected>اختر الدولة</option>
-                  @foreach($countries as $country)
-                <option  value="{{$country->id}}">{{$country->name}}</option>
-                @endforeach
-              </select>
+                <a href="{{route('home')}}">
+                    <img src="{{asset('user/img/logop.png')}}" alt="logo" height="45px" style="display: block;">
+                </a>
             </div>
-<div class="flex-container">
+            <div>
+                <h1 style="color: #444; font-size: 20px; padding-bottom: 4px; margin: 0; font-weight: 100; margin-right: 27px;"> مرحبا بك   {{Auth::user()->email}}</h1>
+                <div class="link-road">
+                    <a style="color: red;" href="" target="_blank"></a>
+                    <a href="{{route('home')}}" target="_blank">متجر الممالك</a>
+                    <i class="fa-solid fa-chevron-left"></i>
+                    <a href="" target="_blank">سلة المشتريات</a>
+                    <i class="fa-solid fa-chevron-left"></i>
+                    <a href="{{route('home')}}">إنهاء الطلب</a>
 
-</div>
-            <form action="{{route('sendChargeOrder')}}" method="POST" enctype="multipart/form-data">
+                </div>
+            </div>
+        </header>
+        <!-- end header -->
+        <!--  قسم الدفع-->
+        <div class= "col-sm-12" style="display: block; ">
+            <div class="head-main d-flex align-items-center my-3">
+                <span style="background-color: #3a075f; font-size: 13px; padding: 4px 10px; border-radius: 50%; color: #b986de;">1</span>
+                <img style="margin: 0 5px;" class="title-wallet-img" src="https://cdn.assets.salla.network/stores/vendor/checkout/images/icons/step-payment.svg" alt="wallet">
+                <h2 class="title-wallet">الدفع</h2>
+            </div>
+            <div class="container">
+                <div class="row justify-content-start">
+                    @if(!is_null($payments))
+                    @foreach($payments as $payment)
+                        <button class="button-bank  col-5 m-1" onclick="toggleBorder(this)"  data-payment_id="{{$payment->id}}" ><img src="{{asset('admin/admin_image/payment/'.$payment->payment_photo)}}" alt="mada" width="80px"></button>
+                    @endforeach
+                    @endif
+                </div>
+            </div>
+{{--       start form     --}}
+            <form action="{{route('sendChargeOrder')}}" method="post" enctype="multipart/form-data">
                 @csrf
-<div class="money-trans">
-    <div>
-        <div class="num">
-            <h4 style="color: #f9f9fb;">1</h4>
-        </div>
-        <div class="line">
-            <div class="vl"></div>
-        </div>
-        <div class="num">
-            <h4 style="color: #f9f9fb;">2</h4>
-        </div>
-    </div>
-    <div >
-        <div class="instructions">
-        <div class="parag1">
-              <h6 style="color: #000000;">قم بتحويل الأموال إلى حساب وكيلنا الموضح أدناه</h6>
-            </div>
-            <div class="stroke">
-              <div class="payment-btn">
-                <div>
-                    <input type="hidden" name="payment_id" id="payment_id" value="">
-                  <input type="text" name="account_number" id="account_number">
-                    <input type="hidden" name="category_id" id="category_id" value="{{$category_id}}">
-                    <input type="hidden" name="product_id" id="product_id" value="{{$product_id}}">
+            <div class="my-3">
+                <div class="head-select">
+                    <h2 style="font-size: 20px; color: #444;">اختر حساب التاجر</h2>
                 </div>
-              </div>
-            </div>
-            <div class="parag1">
-              <h6 style="color: #000000;">بعد تحويل الأموال، قم بتحميل إثبات الدفع ورقم المعاملة ثم انقر فوق الزر "لقد دفعت</h6>
-              <div>
-              </div>
-              <div class="btnFlex" style="display: flex; gap: 20px;">
-                <input class="custom-input" type="text" placeholder="الرقم المرجعي للحوالة" name="process_number">
-                <input class="custom-input2" type="file" name="photo">
-                  <input class="custom-input" type="text" placeholder="رقم الid الخاص بك" name="user_id">
-              </div>
-              <div>
-
-{{--         <button class="btn responsive" style="margin: 1.5% 0%; height: 50px; border: none; width: 60%; border-radius: 10px; border:1px solid #d1d0d0; background-color: #F9F9FB; color: rgb(178, 178, 178);">اضف طلبا اخر  <span style="font-weight: 500;">+</span></button>--}}
-                      <br>
-                <div style="display: flex; gap: 10px; flex-direction: column;">
-                    <button type="submit" class="btnLarge" style=" border: none; width: 160px;height: 50px; border-radius: 10px; background-color: #000000; color: white;">لقد دفعت</button>
-                    <div style="display: flex; gap: 10px;">
-                        <i class="fa-solid fa-info-circle" style="color: #806a6a;"></i>
-                        <h6 style="font-size: smaller;"> لا يوجود رسوم, يتم قبول الطلبات في غضون 0 - 8 ساعات, قد تتأثر المدة بأوقات الدوام في حال كانت عبر مكتب حوالات او عبر حوالة بنكية.</h6>
-
-                    </div>
+                <input type="hidden" name="product_id" id="product_id" value="{{$product_id}}">
+                <div class="select col-md-12">
+                    <select dir="rtl" class="form-select  @error('account_name') is-invalid @enderror" aria-label="Default select example"  name="account_name">
+                        @if(!is_null($accounts))
+                        @foreach($accounts as $account)
+                            <option value="{{$account->id}}" selected >{{$account->account_name}}</option>
+                        @endforeach
+                        @endif
+                    </select>
                 </div>
-              </div>
+                @error('account_name')
+                <div class="alert alert-danger message">{{ $message}}</div>
+                @enderror
             </div>
-          </div>
-    </div>
-</div>
+            <div style="margin-top: 40px;">
+                <div class="d-block d-md-flex">
+                    <p style="margin-right: 20px;">صاحب الحساب</p>
+                    <b id="accountOwner" style="margin-right: 20px;">{{ empty($account->account_name)? 'لا يوجد حساب':$account->account_name}}</b>
+                    <button onclick="copyCodename()" style="border: none; background-color: transparent;"><i class="fa-regular fa-copy" style="font-size: 20px; margin-right: 5px;"></i></button>
+                </div>
+
+                <div class="d-block d-md-flex" style="margin:10px 0">
+                    <p style="margin-right: 20px;">رقم الحساب</p>
+                    <b id="accountNumber" class="account-number" style="margin-right: 20px;">{{empty($account->account_number)?'لا يوجد رقم حساب':$account->account_number}}</b>
+                    <button onclick="copyCodenamee()" style="border: none; background-color: transparent;"><i class="fa-regular fa-copy" style="font-size: 20px; margin-right: 5px;"></i></button>
+
+                    <p style="margin-right: 20px;"> رقم الآيبان </p>
+                    <b id="iban" style="margin-right: 20px;">{{ empty($account->ipn_number)?'لا يوجد رقم ايبان':$account->ipn_number}}</b>
+                    <button onclick="copyCodeaccountNumberr()" style="border: none; background-color: transparent;"><i class="fa-regular fa-copy" style="font-size: 20px; margin-right: 5px;"></i></button>
+                </div>
+            </div>
+            <div>
+                <input class="form-control w-50" type="text" value="USD ={{ empty($account->exchange_rate)?'لا يوجد سعر صرف':$account->exchange_rate}}" readonly name="exchange_rate">
+            </div>
+
+            <div class="my-4 d-flex justify-content-start">
+                <label id="upload-file" for="formFileMultiple" style="font-size: 18px; font-weight: 500; margin-right: 20px; color: #ffb71b; opacity: .8; cursor: pointer; background-color: #00000053; padding: 5px; border-radius: 5px;"><i class="fa-solid fa-cloud-arrow-up"></i> الرجاء ارفاق صورة الايصال.</label>
+                <input type="file" id="formFileMultiple" multiple style="display: none;" name="photo" accept="image/*" class="@error('photo') is-invalid @enderror"">
+            </div>
+                @error('photo')
+                <div class="alert alert-danger message">{{ $message}}</div>
+                @enderror
+            <div class="my-1">
+                <input type="text" class="form-control @error('process_number') is-invalid @enderror" placeholder="الرقم المرجعي للعملية" name="process_number">
+            </div>
+                @error('process_number')
+                <div class="alert alert-danger message">{{ $message}}</div>
+                @enderror
+            <div class="my-2">
+                <input type="text" class="form-control @error('user_id') is-invalid @enderror" placeholder=" ايدي (ID) الحساب الخاص بك" name="user_id">
+            </div>
+                @error('user_id')
+                <div class="alert alert-danger message">{{ $message}}</div>
+                @enderror
+            <div class="col-lg-3 col-sm-12" style="margin-top: 50px;">
+
+                <div class="d-flex justify-content-center">
+                    <h4 class="text-muted" style="font-size: 20px;">ملخص السلة</h4>
+                    <p style="margin-right: 60px;">${{$price}}</p>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <h4 class="text-muted" style="font-size: 20px;">اجمالي الطلب</h4>
+                    <p style="margin-right: 60px;">${{$price}}</p>
+                </div>
+            </div>
+            <div class="my-4">
+                <button id="btn-submit" type="submit" class="btn w-100" style="background-color: #000; color: #ffb71b; font-size: 18px; font-weight: 700; height: 45px; padding: 3 50px 5px; border-radius: 0 0 5px 5px;">اكمال الدفع</button>
+            </div>
+
             </form>
+{{--     End form       --}}
+            <div class="d-flex align-items-center my-2">
+                <!-- footer section -->
+                <p style="font-size: 15px; margin: 0 5px; color: #c4c4c4;">تسوق إلكتروني آمن 100%</p>
+                <img style="display: inline-block; height: auto; opacity: .4; vertical-align: middle; width: 15px; margin: 0 6px;" src="https://cdn.assets.salla.network/stores/vendor/checkout/images/icons/secure-payment-02.svg" alt="">
+                <img style="display: inline-block; height: auto; opacity: .4; vertical-align: middle; width: 15px; margin: 0 6px;" src="https://cdn.assets.salla.network/stores/vendor/checkout/images/icons/secure-payment.svg" alt="">
+                <img style="display: inline-block; height: auto; opacity: .4; vertical-align: middle; width: 15px; margin: 0 6px;" src="https://cdn.assets.salla.network/stores/vendor/checkout/images/icons/secure-payment-03.svg" alt="">
+
+            </div>
+
+
         </div>
-    </header>
-    <script src={{asset('https://code.jquery.com/jquery-3.7.0.js')}}></script>
-    <script>
-        $('select[name="country"]').on('change', function() {
-            let countryId = $(this).val();
-            if (countryId) {
+    </div>
+{{--  end row  --}}
+</div>
+{{-- End container  --}}
+<script src={{asset('https://code.jquery.com/jquery-3.7.0.js')}}></script>
+
+
+<script>
+        $('.button-bank').on('click', function () {
+            let paymentId = $(this).data('payment_id');
+            let select=  $('select[name="account_name"]');
+            if (paymentId) {
                 $.ajax({
-                    url: "{{ URL::to('getPayments') }}/"+countryId,
+                    url: "{{ URL::to('getAllAccounts')}}/" + paymentId,
                     type: "GET",
                     dataType: "json",
-                    success: function(data){
+                    success: function (data) {
                         console.log(data);
-                        data.forEach(function(item, index){
-                            $('.flex-container').append(`
-                              <div class='img-div' style='cursor: pointer;'
-                               data-payment_id="${item[index].id}"
-                                data-account_number="${item[index].account_number}">
-                            <img src="{{asset('admin/admin_image/payment')}}/${item[index].photo}"
-                                    alt="">
-                               </div>
-                              `);
+                       select.empty();
+                        data.forEach(function (item){
+                         item.forEach(function (e){
+                              select.append(`
+                                <option value="${e.id}" selected>${e.account_name}</option>
+                             `);
+                             $('#accountOwner').text(e.account_name);
+                             $('#accountNumber').text(e.account_number);
+                             $('#iban').text(e.ipn_number);
+                             $('input[name=exchange_rate]').val(e.exchange_rate);
+                         });
                         });
                     },
-
                 });
             } else {
                 console.log('AJAX load did not work');
             }
         });
-    </script>
+</script>
+<!-- script link -->
+{{--get account info--}}
+<script>
+    $('select[name="account_name"]').on('change', function() {
+        let accountId = $(this).val();
+        if (accountId) {
+            $.ajax({
+                url: "{{ URL::to('getPaymentAccount')}}/"+accountId,
+                type: "GET",
+                dataType: "json",
+                success: function(data){
+                    data.forEach(function(item, index){
+                       $('#accountOwner').text(item[index].account_name);
+                        $('#accountNumber').text(item[index].account_number);
+                        $('#iban').text(item[index].ipn_number);
+                        $('input[name=exchange_rate]').val(item[index].exchange_rate);
+                    });
+                },
 
-  <script>
-    document.addEventListener('click',function (e) {
-       if(e.target.classList.contains('img-div')){
-           document.querySelector('#account_number').value=e.target.getAttribute('data-account_number');
-           document.querySelector('#payment_id').value=e.target.getAttribute('data-payment_id');
-       }
+            });
+        } else {
+            console.log('AJAX load did not work');
+        }
     });
-  </script>
-    <script>
+</script>
+<script>
     let message=document.querySelectorAll('.message');
     if( message){
-    setTimeout(()=>{
-    message.forEach((e)=>{
-    e.style.display="none";
-    })
+        setTimeout(()=>{
+            message.forEach((e)=>{
+                e.style.display="none";
+            })
 
-    },3000)
+        },4000)
     }
-    </script>
-  </body>
+</script>
+<script>
+    // نسخ ال account number
+function copyCodenamee() {
+    var accountNumber = document.getElementById('accountNumber');
+
+    var textArea = document.createElement('textarea');
+    textArea.value = accountNumber.innerText;
+
+    document.body.appendChild(textArea);
+
+    textArea.select();
+    document.execCommand('copy');
+
+    document.body.removeChild(textArea);
+
+}
+function copyCodename() {
+    var accountNumber = document.getElementById('accountOwner');
+
+    var textArea = document.createElement('textarea');
+    textArea.value = accountNumber.innerText;
+
+    document.body.appendChild(textArea);
+
+    textArea.select();
+    document.execCommand('copy');
+
+    document.body.removeChild(textArea);
+
+}
+
+function copyCodeaccountNumberr() {
+    var accountNumber = document.getElementById('iban');
+
+    var textArea = document.createElement('textarea');
+    textArea.value = accountNumber.innerText;
+
+    document.body.appendChild(textArea);
+
+    textArea.select();
+    document.execCommand('copy');
+
+    document.body.removeChild(textArea);
+
+}
+
+// border boxes
+function toggleBorder(button) {
+    var buttons = document.querySelectorAll('.button-bank');
+
+    buttons.forEach(function (btn) {
+        btn.classList.remove('active');
+    });
+    button.classList.add('active');
+}
+
+function copyCode() {
+    console.log('تم نسخ النص');
+}
+// upload صورة الايصال
+
+document.getElementById('formFileMultiple').addEventListener('change', function () {
+    var fileName = this.value.split('\\').pop();
+    document.getElementById('customFileLabel').innerHTML = fileName ? fileName : 'ارفع الصورة من فضلك';
+});
+</script>
+<script src="{{asset('user/css/bootstrap1.bundle.min.js')}}"></script>
+</body>
 </html>

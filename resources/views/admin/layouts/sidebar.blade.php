@@ -42,7 +42,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{route('admin.showCountries')}}" {{Route::is('admin.showCountries')?" class=active" : ""}}>
+                <a href="{{route('admin.showPayments')}}" {{Route::is('admin.showPayments')?" class=active" : ""}}>
                     <i class="fa-solid fa-cart-plus"></i>
                     اضافه طرق دفع
                 </a>

@@ -6,13 +6,13 @@
     </div>
 
     <div class="notification">
-        <div class="dropdown switch-language"  style="display: inline-block">
+        <div class="dropdown"  style="display: inline-block">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                en
+                <i class="fa-solid fa-language"></i>
             </button>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">en</a></li>
-                <li><a class="dropdown-item" href="#">ar</a></li>
+                <li><a class="dropdown-item" href="#">انجليزي</a></li>
+                <li><a class="dropdown-item active" href="#">عربي</a></li>
             </ul>
         </div>
         <a href="" style=" position: relative;">

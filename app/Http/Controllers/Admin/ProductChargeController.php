@@ -34,7 +34,7 @@ class ProductChargeController extends Controller
             ]
         );
         $photo = time().$request->file('photo')->getClientOriginalName();
-        $request->file('photo')->storeAs('/products/products_charge/', $photo, 'admin');
+        $request->file('photo')->storeAs('products/products_charge/', $photo, 'admin');
 
         Product_Charge::create([
             'category_id'=>$request->category,
@@ -51,7 +51,7 @@ class ProductChargeController extends Controller
         $product=  Product_Charge::findOrFail($id);
         $photo= $product->photo;
         $product->delete();
-        Storage::disk('admin')->delete('/products/products_charge/'.$photo);
+        Storage::disk('admin')->delete('products/products_charge/'.$photo);
         return redirect()->back()->with('success','تم حذف المنتج بنجاح');
 
     }

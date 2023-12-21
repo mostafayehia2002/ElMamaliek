@@ -15,7 +15,7 @@
                  <th style="text-align:start">المستخدم</th>
                 <th style="text-align:start">المنتج</th>
                 <th style="text-align:start">السعر</th>
-                <th style="text-align:start">وسيله الدفع</th>
+                <th style="text-align:start"> اسم الحساب</th>
                 <th style="text-align:start">رقم الحساب </th>
                 <th style="text-align:start">صورة الدفع</th>
                 <th style="text-align:start">رقم عملية الدفع</th>
@@ -29,22 +29,37 @@
                 <tr>
                     <td>{{$loop->index+1}}</td>
                     <td> {{$order->user->email}}</td>
-                    <td> {{$order->product->name}}</td>
+
+                    @if(is_null($order->product_id))
+                        <td> <span class="text-warning">غير متاح</span></td>
+                    @else
+                        <td> {{$order->product->name}}</td>
+                    @endif
+
                     <td> {{$order->price}}</td>
-                    <td>{{$order->payment->payment_name}}</td>
-                    <td>{{$order->payment->account_number}}</td>
-                    <td> <a href="#staticBackdrop{{$order->id}}" data-bs-toggle="modal"><i class="fa-sharp fa-solid fa-eye"></i>عرض</a></td>
+
+                    @if(is_null($order->payment_id))
+                        <td> <span class="text-warning">غير متاح</span></td>
+                        <td> <span class="text-warning">غير متاح</span></td>
+                    @else
+                        <td>{{$order->payment->account_name}}</td>
+                        <td>{{$order->payment->account_number}}</td>
+                    @endif
+
+                    <td>
+                        <a href="#staticBackdrop{{$order->id}}" data-bs-toggle="modal"><i class="fa-sharp fa-solid fa-eye"></i>عرض</a>
+                    </td>
                     <td>{{$order->process_number}}</td>
                     <td>{{$order->user_number}}</td>
                     <td>
-                        @if($order->status=='قبول')
+                        @if($order->status=='تم الموافقة')
                         <span class="text-success"> تم الموافقه</span>
                         @else
                         <span class="text-danger"> بانتظار الموافقة</span>
                     @endif
                     </td>
                     <td>
-                        @if($order->status=='بانتظارالموافقة')
+                        @if($order->status=='بانتظارالموافقة' && !is_null($order->product_id) )
                         <a href="{{route('admin.acceptOrderCharge',$order->id)}}" class="btn btn-primary" onclick="return confirm('هل انت متاكد من تاكيد الطلب')"><i class="fa-solid fa-check"></i></a>
                         @endif
                         <a href="{{route('admin.deleteOrderCharge',$order->id)}}" class="btn btn-danger" onclick="return confirm('هل انت متاكد من حذف الطلب')"><i class="fa-solid fa-trash"></i></a>

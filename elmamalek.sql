@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 15, 2023 at 11:07 PM
+-- Generation Time: Dec 21, 2023 at 10:37 PM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `admins` (
 --
 
 INSERT INTO `admins` (`id`, `name`, `photo`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'hassan', 'profile.jpg', 'hassan@gmail.com', NULL, '$2y$12$EKRiwTZeGdHooWLNYycuPeA5DRgE2GhrN0p24nYrgJDaMQFfG7o5.', NULL, '2023-12-15 21:06:36', '2023-12-15 21:06:36');
+(1, 'hassan', 'profile.jpg', 'hassan@gmail.com', NULL, '$2y$12$3y3yaQ62iNmeBcJejMnfl.vZhLEgpBAj0CjBAbcUi4NKz0XwQvdGW', NULL, '2023-12-21 20:37:17', '2023-12-21 20:37:17');
 
 -- --------------------------------------------------------
 
@@ -95,21 +95,6 @@ CREATE TABLE IF NOT EXISTS `category_charges` (
   `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `photo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `countries`
---
-
-DROP TABLE IF EXISTS `countries`;
-CREATE TABLE IF NOT EXISTS `countries` (
-  `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -158,8 +143,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (3, '2014_10_12_100000_create_password_reset_tokens_table', 1),
 (4, '2019_08_19_000000_create_failed_jobs_table', 1),
 (5, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(6, '2023_12_06_193543_create_countries_table', 1),
-(7, '2023_12_06_194001_create_payments_table', 1),
+(6, '2023_12_06_193543_create_payments_table', 1),
+(7, '2023_12_06_194001_create_payment_accounts_table', 1),
 (8, '2023_12_07_141325_create_accounts_table', 1),
 (9, '2023_12_09_144643_create_categories_table', 1),
 (10, '2023_12_09_144643_create_category_charges_table', 1),
@@ -199,12 +184,12 @@ DROP TABLE IF EXISTS `orders`;
 CREATE TABLE IF NOT EXISTS `orders` (
   `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
   `user_id` bigint UNSIGNED NOT NULL,
-  `product_id` bigint UNSIGNED NOT NULL,
-  `payment_id` bigint UNSIGNED NOT NULL,
+  `product_id` bigint UNSIGNED DEFAULT NULL,
+  `payment_id` bigint UNSIGNED DEFAULT NULL,
   `price` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `process_number` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `process_photo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` enum('قبول','بانتظارالموافقة') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'بانتظارالموافقة',
+  `status` enum('تم الموافقة','بانتظارالموافقة') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'بانتظارالموافقة',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -223,13 +208,13 @@ DROP TABLE IF EXISTS `order_charges`;
 CREATE TABLE IF NOT EXISTS `order_charges` (
   `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
   `user_id` bigint UNSIGNED NOT NULL,
-  `product_id` bigint UNSIGNED NOT NULL,
-  `payment_id` bigint UNSIGNED NOT NULL,
+  `product_id` bigint UNSIGNED DEFAULT NULL,
+  `payment_id` bigint UNSIGNED DEFAULT NULL,
   `price` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `process_number` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `process_photo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_number` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` enum('قبول','بانتظارالموافقة') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'بانتظارالموافقة',
+  `status` enum('تم الموافقة','بانتظارالموافقة') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'بانتظارالموافقة',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -261,14 +246,31 @@ CREATE TABLE IF NOT EXISTS `password_reset_tokens` (
 DROP TABLE IF EXISTS `payments`;
 CREATE TABLE IF NOT EXISTS `payments` (
   `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
-  `country_id` bigint UNSIGNED NOT NULL,
-  `photo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `payment_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payment_photo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payment_accounts`
+--
+
+DROP TABLE IF EXISTS `payment_accounts`;
+CREATE TABLE IF NOT EXISTS `payment_accounts` (
+  `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
+  `payment_id` bigint UNSIGNED NOT NULL,
+  `account_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `account_number` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ipn_number` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exchange_rate` decimal(20,2) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `payments_country_id_foreign` (`country_id`)
+  KEY `payment_accounts_payment_id_foreign` (`payment_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -362,23 +364,23 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Constraints for table `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_payment_id_foreign` FOREIGN KEY (`payment_id`) REFERENCES `payments` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `orders_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `orders_payment_id_foreign` FOREIGN KEY (`payment_id`) REFERENCES `payment_accounts` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `orders_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `orders_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `order_charges`
 --
 ALTER TABLE `order_charges`
-  ADD CONSTRAINT `order_charges_payment_id_foreign` FOREIGN KEY (`payment_id`) REFERENCES `payments` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `order_charges_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `product_charges` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `order_charges_payment_id_foreign` FOREIGN KEY (`payment_id`) REFERENCES `payment_accounts` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `order_charges_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `product_charges` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `order_charges_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `payments`
+-- Constraints for table `payment_accounts`
 --
-ALTER TABLE `payments`
-  ADD CONSTRAINT `payments_country_id_foreign` FOREIGN KEY (`country_id`) REFERENCES `countries` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `payment_accounts`
+  ADD CONSTRAINT `payment_accounts_payment_id_foreign` FOREIGN KEY (`payment_id`) REFERENCES `payments` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `products`

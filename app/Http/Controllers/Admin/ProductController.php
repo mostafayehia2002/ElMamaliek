@@ -34,7 +34,7 @@ class ProductController extends Controller
             ]
         );
         $photo = time().$request->file('photo')->getClientOriginalName();
-        $request->file('photo')->storeAs('/products/products_code/', $photo, 'admin');
+        $request->file('photo')->storeAs('products/products_code/', $photo, 'admin');
 
         Product::create([
             'category_id'=>$request->category,
@@ -53,7 +53,7 @@ class ProductController extends Controller
         $product=Product::find($id);
         $photo= $product->photo;
         $product->delete($id);
-        Storage::disk('admin')->delete('/products/products_code/'.$photo);
+        Storage::disk('admin')->delete('products/products_code/'.$photo);
         return redirect()->back()->with('success','تم حذف المنتج بنجاح');
     }
 }

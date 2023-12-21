@@ -5,10 +5,10 @@ use App\Http\Controllers\Admin\AdminAuth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryChargeController;
 use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\CountryController;
+use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\Admin\OrderChargeController;
 use App\Http\Controllers\Admin\OrderController;
-use App\Http\Controllers\Admin\PaymentController;
+use App\Http\Controllers\Admin\PaymentAccountController;
 use App\Http\Controllers\Admin\ProductChargeController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\UserController;
@@ -33,15 +33,16 @@ Route::middleware('auth:admins')->group(function () {
         Route::post('update_admin/{id}','updateAdmin')->name('updateAdmin');
         Route::get('delete_admin/{id}','deleteAdmin')->name('deleteAdmin');
     });
+
     //payments
-    Route::controller(CountryController::class)->group(function (){
-        Route::get('country', 'index')->name('showCountries');
-        Route::get('country/create', 'create')->name('createCountry');
-        Route::Post('country/store', 'store')->name('storeCountry');
-    });
     Route::controller(PaymentController::class)->group(function (){
+        Route::get('payments', 'index')->name('showPayments');
         Route::Post('payment/store', 'store')->name('storePayment');
         Route::get('payment/delete/{id}', 'delete')->name('deletePayment');
+    });
+    Route::controller(PaymentAccountController::class)->group(function (){
+        Route::Post('payment_account/store', 'store')->name('storePaymentAccount');
+        Route::get('payment_account/delete/{id}', 'delete')->name('deletePaymentAccount');
     });
     //
     Route::controller(AccountController::class)->group(function (){

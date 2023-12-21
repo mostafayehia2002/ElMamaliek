@@ -45,7 +45,7 @@ return [
         ],
         'admin' => [
             'driver' => 'local',
-            'root' => public_path('admin/admin_image'),
+            'root' => public_path('admin/admin_image/'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
             'throw' => false,

@@ -41,7 +41,7 @@
     <div class="container py-3 header-top">
         <div class="row header-wrapper">
             <div class="col-lg-8 col-sm-11 logo-wrapper d-flex d-lg-block">
-                <a href="#" class="sub-nav__menu ml-2">
+                <a href="#" class="sub-nav__menu ml-2" >
                     <svg width="30px" height="30px" version="1.1" viewBox="0 0 100 100" xmlns="">
                         <path
                             d="m23 29c-1.6562 0-3 1.3438-3 3s1.3438 3 3 3h54c1.6562 0 3-1.3438 3-3s-1.3438-3-3-3zm0 18c-1.6562 0-3 1.3438-3 3s1.3438 3 3 3h54c1.6562 0 3-1.3438 3-3s-1.3438-3-3-3zm0 18c-1.6562 0-3 1.3438-3 3s1.3438 3 3 3h54c1.6562 0 3-1.3438 3-3s-1.3438-3-3-3z" />
@@ -53,9 +53,13 @@
                     </a>
                 </h1>
             </div>
-             <div class="col-lg-1 col-sm-12 d-lg-block actions-container" >
+
+
+
+             <div class="col-lg-1 col-sm-12 d-lg-block actions-container"  >
                 <button   class=" circle-action d-lg-nones site-header__mine-cart" id="btn-notification">
                     <span class="sicon-bell"></span>
+{{--                    <span class="badge" data-cart-badge="">3</span>--}}
                 </button>
             </div>
         </div>
@@ -84,6 +88,8 @@
                         <form action="{{route('logout')}}" method="POST">
                             @csrf
                             <button type="submit" class="circle-action">
+
+                                <i class="fa-sharp fa-solid fa-right-from-bracket"></i>
                             </button>
                         </form>
                         <span class="username" style="position: relative;top:10px">{{Auth::user()->email}}</span>

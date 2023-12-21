@@ -22,7 +22,7 @@ class AuthenticatedSessionController extends Controller
     {
         $request->authenticate();
         $request->session()->regenerate();
-        return redirect()->route('home')->with('success','تم تسجيل الدخول بنجاح');
+        return redirect()->back()->with('success','تم تسجيل الدخول بنجاح');
     }
 
     /**
@@ -36,6 +36,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/')->with('success','تم تسجيل الخروج بنجاح');
+        return redirect()->back()->with('success','تم تسجيل الخروج بنجاح');
     }
 }

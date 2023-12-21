@@ -1,6 +1,5 @@
 
 @extends('user.layouts.home')
-
 @section('content')
     <div class="breadcrumb-container mobile-webview-hide">
         <div class="container container--default">

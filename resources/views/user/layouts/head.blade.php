@@ -1,4 +1,3 @@
-<head>
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +7,7 @@
     <meta name="msapplication-navbutton-color" content="#3a075f">
     <meta name="apple-mobile-web-app-status-bar-style" content="#3a075f">
 
-    <link rel="icon" type="https://king2game.shop/vistor/img/t.png" href="https://king2game.shop/vistor/img/t.png" />
+    <link rel="icon" type="https://king2game.shop/vistor/img/t.png" href="https://king2game.shop/vistor/img/t.png"/>
     <link rel="apple-touch-icon-precomposed" href="https://king2game.shop/vistor/img/t.png">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="https://king2game.shop/vistor/img/t.png">
@@ -39,44 +38,34 @@
     <script
         type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"WebPage","name":"Over 9000 Thousand!","description":"وجهتك لعالم التقنية متجر العرب جميع الخدمات الرقمية هنا و اشتراكات البلس اكواد الالعاب ببجي بلس واتس بلس انستقرام بلس برامج بلس عروض"}</script>
 
-<link rel="stylesheet" href="{{asset('user/css/app29f4.css')}}" />
+<link rel="stylesheet" href="{{asset('user/css/all.min.css')}}">
+
+<link rel="stylesheet" href="{{asset('user/css/app29f4.css')}}">
 <link rel="stylesheet" href="{{asset('user/css/themes0af0.css')}}">
 <link rel="stylesheet" href="{{asset('user/css/plugins3ee9.css')}}">
 <link rel="stylesheet" href="{{asset('user/css/slick-themeb521.css')}}">
-<link rel="stylesheet" href="{{asset('user/css/fonts/sallaiconse8da.css')}}" />
+<link rel="stylesheet" href="{{asset('user/css/fonts/sallaiconse8da.css')}}">
 <link rel="stylesheet" href="{{asset('user/css/mainb521.css')}}">
 <link rel="stylesheet" href="{{asset('user/css/theme-customb521.css?v=v1.5.781')}}">
 <link rel="stylesheet" href="{{asset('user/css/bootstrap.min.css')}}">
 <link rel="stylesheet" href="{{asset('user/css/stayle.css')}}">
 <link rel="stylesheet" href="{{asset('user/css/main.css')}}">
-
 <style>
     .actions-container{
         margin-left: -30px;
+         margin-top: -7px;
     }
     @media (max-width: 767px) {
         .actions-container{
             width: 50px;
             position: absolute;
             left: 50px;
+            top:10-px;
 
         }
     }
 </style>
-    <style>
-        .message{
-            height: 40px;
-            width: 96%;
-            text-align: center;
-            padding: 6px;
-            margin: 24px auto;
-        }
-        .success-massage{
-            color: white;
-            background-color: black;
-        }
-        /**/
-    </style>
+<link rel="stylesheet" href="{{asset('user/css/app29f4.css')}}">
 <link rel="stylesheet" href="{{asset('user/css/app29f4.css')}}">
 <link rel="stylesheet" href="{{asset('user/css/themes0af0.css')}}">
 <link rel="stylesheet" href="{{asset('user/css/plugins3ee9.css')}}">
@@ -87,5 +76,3 @@
 <link rel="stylesheet" href="{{asset('user/css/theme-customb521.css')}}">
 <link rel="stylesheet" href="{{asset('user/css/main.css')}}">
 
-
-</head>

@@ -17,18 +17,17 @@ class OrderController extends Controller
         $orders=Order::with(['user','payment','product'])->orderBy('created_at','desc')->get();
       return view('admin.codes.show_orders',compact('orders'));
     }
-
     public function delete($id){
         $order=Order::findOrFail($id);
-        $photo=$order->photo;
-        Storage::disk('admin')->delete('/orders/'.$photo);
+        $photo=$order->process_photo;
+        Storage::disk('admin')->delete('orders/'.$photo);
         $order->delete();
         return redirect()->back()->with('success','تم حذف الطلب بنجاح');
     }
 
     public function acceptOrder($id){
         $order=Order::with('product')->where('id',$id)->first();
-        $order->update(['status'=>'قبول']);
+        $order->update(['status'=>'تم الموافقة']);
         $order->product->update(['status'=>'غير متاح']);
         //send code to email && notification
         Notification::send($order->user,new SendCodeProduct($order->user->email, $order->product->product_name ,$order->product->code));
