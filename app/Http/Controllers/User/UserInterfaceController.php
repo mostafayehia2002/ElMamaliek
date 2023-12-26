@@ -119,21 +119,6 @@ class UserInterfaceController extends Controller
         return redirect()->back()->with('success','تم طلب المنتج بنجاح في انتظار الموافقة');
     }
 //end
-
-
-
-
-    //get all accounts and put them in select
-    public function getAccount($id){
-        try {
-            $accounts= Payment_Account::where('id',$id)->get();
-        }catch (Exception $e){
-            return response()->json(['error'=>$e]);
-        }
-        return response()->json([$accounts]);
-    }
-
-
     //get all accounts  if you click on one of payment
     public function getAllAccounts($id){
         try {

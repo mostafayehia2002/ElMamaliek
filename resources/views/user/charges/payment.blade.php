@@ -24,7 +24,7 @@
                 </a>
             </div>
             <div>
-                <h1 style="color: #444; font-size: 20px; padding-bottom: 4px; margin: 0; font-weight: 100; margin-right: 27px;"> مرحبا بك   {{Auth::user()->email}}</h1>
+                <h2 style="color: #444; font-size: 20px; padding-bottom: 4px; margin: 0; font-weight: 100; margin-right: 27px;">  مرحبا بك{{Auth::user()->email}} </h2>
                 <div class="link-road">
                     <a style="color: red;" href="" target="_blank"></a>
                     <a href="{{route('home')}}" target="_blank">متجر الممالك</a>
@@ -147,9 +147,11 @@
 </div>
 {{-- End container  --}}
 <script src={{asset('https://code.jquery.com/jquery-3.7.0.js')}}></script>
-
-
 <script>
+     window.onload=function(){
+       btn=document.querySelectorAll('.button-bank');
+       btn[0].click();
+     }
         $('.button-bank').on('click', function () {
             let paymentId = $(this).data('payment_id');
             let select=  $('select[name="account_name"]');
@@ -160,50 +162,28 @@
                     dataType: "json",
                     success: function (data) {
                         console.log(data);
-                       select.empty();
+                        select.empty();
                         data.forEach(function (item){
-                         item.forEach(function (e){
-                              select.append(`
+                            item.forEach(function (e){
+                                select.append(`
                                 <option value="${e.id}" selected>${e.account_name}</option>
                              `);
-                             $('#accountOwner').text(e.account_name);
-                             $('#accountNumber').text(e.account_number);
-                             $('#iban').text(e.ipn_number);
-                             $('input[name=exchange_rate]').val(e.exchange_rate);
-                         });
+                                $('#accountOwner').text(e.account_name);
+                                $('#accountNumber').text(e.account_number);
+                                $('#iban').text(e.ipn_number);
+                                $('input[name=exchange_rate]').val(e.exchange_rate);
+                            });
                         });
                     },
                 });
             } else {
                 console.log('AJAX load did not work');
             }
+
         });
 </script>
 <!-- script link -->
-{{--get account info--}}
-<script>
-    $('select[name="account_name"]').on('change', function() {
-        let accountId = $(this).val();
-        if (accountId) {
-            $.ajax({
-                url: "{{ URL::to('getPaymentAccount')}}/"+accountId,
-                type: "GET",
-                dataType: "json",
-                success: function(data){
-                    data.forEach(function(item, index){
-                       $('#accountOwner').text(item[index].account_name);
-                        $('#accountNumber').text(item[index].account_number);
-                        $('#iban').text(item[index].ipn_number);
-                        $('input[name=exchange_rate]').val(item[index].exchange_rate);
-                    });
-                },
 
-            });
-        } else {
-            console.log('AJAX load did not work');
-        }
-    });
-</script>
 <script>
     let message=document.querySelectorAll('.message');
     if( message){

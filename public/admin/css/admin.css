@@ -217,7 +217,7 @@ a:hover{
         padding-top: 80px;
     }
     .Dashboard {
-       max-height: 90vh;
+       height:90vh;
         width: 270px;
         right:-270px;
         /**/
@@ -226,6 +226,12 @@ a:hover{
     .Dashboard.hidden {
         right: 0;
         top: 60px;
+    }
+    .links {
+        height: 50%;
+    }
+    .user {
+        align-self: flex-start;
     }
     .page-navbar {
         position: fixed;

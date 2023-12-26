@@ -43,8 +43,8 @@
             </li>
             <li>
                 <a href="{{route('admin.showPayments')}}" {{Route::is('admin.showPayments')?" class=active" : ""}}>
-                    <i class="fa-solid fa-cart-plus"></i>
-                    اضافه طرق دفع
+                    <i class="fa-solid fa-credit-card"></i>
+                    وسائل الدفع
                 </a>
             </li>
         </ul>

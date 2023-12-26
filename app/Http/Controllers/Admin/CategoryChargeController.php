@@ -63,7 +63,6 @@ class CategoryChargeController extends Controller
 
     public function delete($id){
         $category = Category_Charge::with('products')->findOrFail($id);
-
         foreach($category->products as $product){
             Storage::disk('admin')->delete('products/products_charge/'.$product->photo);
         }
