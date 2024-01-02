@@ -43,3 +43,17 @@ if( message){
 }
 
 new DataTable('#example');
+
+/****************************************/
+//notification action
+let dropdown_notification= document.querySelector('.notification-menu .notification-dropdown');
+let btn_notification=document.querySelector('.notification-menu>a');
+btn_notification.onclick=function (){
+    setTimeout(function (){
+      if(  dropdown_notification.classList.contains('active')){
+          dropdown_notification.classList.remove('active');
+      }else{
+          dropdown_notification.classList.add('active');
+      }
+    },300);
+}

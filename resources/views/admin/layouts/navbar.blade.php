@@ -18,17 +18,68 @@
         <a href="" style=" position: relative;">
             <i class="fa-solid fa-message"></i>
             <div class="numberOfNotify">0</div>
-
         </a>
-        <a href="" style=" position: relative;">
+        <div class="notification-menu">
+        <a href="#" style=" position: relative;">
             <i class="fa-sharp fa-solid fa-bell"></i>
-
             <div class="numberOfNotify">0</div>
+        </a>
+          <div class="notification-dropdown">
 
-           </a>
-            <span class="setting">
+              <div class="title-notification">
+                  <a  href="" class="title-name">الاشعارات</a>
+
+                  <a href="#" class="title-markAll">قراءة الكل</a>
+              </div>
+              <ul class="notification-content">
+                  <li class="unread">
+                      <a>
+                          <div class="img">
+                              <img src="{{asset('admin/admin_image/profile/profile.jpg')}}" alt="Image">
+                          </div>
+                          <div class="text">
+                              <strong>gad993813@gmail.com</strong>
+                              <p>
+                                   قام بشراء منتج <mark>شحن بوتات</mark> في انتظار الموافقه
+
+                              </p>
+
+                          </div>
+                          <div class="date">
+                              <strong>01-01-2024</strong>
+                          </div>
+
+                      </a>
+                  </li>
+                  <li >
+                      <a>
+                          <div class="img">
+                              <img src="{{asset('admin/admin_image/profile/profile.jpg')}}" alt="Image">
+                          </div>
+                          <div class="text">
+                              <strong>gad993813@gmail.com</strong>
+                              <p>
+                                  قام بشراء منتج <mark>شحن بوتات</mark> في انتظار الموافقه
+
+                              </p>
+                          </div>
+                          <div class="date">
+                              <strong>01-01-2024</strong>
+                          </div>
+
+                      </a>
+                  </li>
+              </ul>
+
+          </div>
+        </div>
+
+        <span class="setting">
                   <i class="fa-solid fa-bars "></i>
-            </span>
-
+        </span>
     </div>
 </div>
+
+<script>
+
+</script>

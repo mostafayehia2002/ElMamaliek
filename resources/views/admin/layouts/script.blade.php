@@ -5,4 +5,5 @@
 {{----}}
 <script src={{asset('admin/js/datatables.min.js')}}></script>
 <script src={{asset('admin/js/bootstrap.bundle.js')}}></script>
+<script src="{{asset('admin/js/popper.min.js')}}"></script>
 <script src={{asset('admin/js/admin.js')}}></script>

@@ -19,9 +19,8 @@
     {{--Start Page Content  --}}
     <div class="content">
     @yield('content')
-    </div>
     {{--    End Page Content--}}
-
+    </div>
 </div>
 {{--End Main Container--}}
 
